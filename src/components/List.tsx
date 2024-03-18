@@ -1,6 +1,5 @@
 import React, { FunctionComponent, ReactNode, ComponentProps } from "react";
 import { styled } from "@storybook/theming";
-import { transparentize } from "polished";
 
 export interface TitleProps {}
 
@@ -55,7 +54,7 @@ export interface ItemProps {}
 
 const Item = styled.div<ItemProps>(({ theme }) => ({
   alignItems: "center",
-  color: transparentize(0.5, theme.color.defaultText),
+  color: theme.color.defaultText,
   cursor: 'default',
   display: "flex",
   fontSize: theme.typography.size.s1,

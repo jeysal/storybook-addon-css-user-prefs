@@ -1,14 +1,14 @@
-import type { DecoratorFunction } from "@storybook/addons";
 import type {
   AnyFramework,
   PartialStoryFn,
   StoryContext,
 } from "@storybook/csf";
-import { PARAM_KEY } from "./constants";
-import { processCSS } from "./processCSS";
-import { useEffect, useGlobals as useAddonGlobals } from "@storybook/addons";
-import { Globals, useGlobals } from "./useGlobals";
-import { substituteQuery } from "./queryString";
+import {PARAM_KEY} from "./constants";
+import {processCSS} from "./processCSS";
+import {Globals, useGlobals} from "./useGlobals";
+import {substituteQuery} from "./queryString";
+import {useGlobals as useAddonGlobals} from '@storybook/manager-api'
+import {useEffect} from 'react';
 
 // Set up patching early enough
 const originalMatchMedia = globalThis.matchMedia;
@@ -37,7 +37,7 @@ const updateMatchMediaQueries = (globals: Globals) => {
   }
 };
 
-export const withGlobals: DecoratorFunction<void> = (
+export const withGlobals = (
   storyFn: PartialStoryFn<AnyFramework>,
   context: StoryContext<AnyFramework>
 ) => {

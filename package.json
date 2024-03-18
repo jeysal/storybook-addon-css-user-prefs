@@ -23,8 +23,8 @@
     "user",
     "storybook-addons"
   ],
-  "repository": "https://github.com/jonathantneal/storybook-addon-css-user-prefs",
-  "author": "Jonathan Neal <jonathantneal@hotmail.com>",
+  "repository": "https://github.com/jeysal/storybook-addon-css-user-prefs",
+  "author": "Tim Seckinger <seckinger.tim@gmail.com>",
   "license": "CC0-1.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -45,9 +45,9 @@
     "build": "concurrently \"yarn buildBabel\" \"yarn buildTsc\"",
     "build:watch": "concurrently \"yarn buildBabel:esm -- --watch\" \"yarn buildTsc -- --watch\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "start": "concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
-    "build-storybook": "build-storybook",
+    "storybook": "storybook dev",
+    "start": "concurrently \"yarn build:watch\" \"yarn storybook -- --quiet\"",
+    "build-storybook": "storybook build",
     "prerelease": "zx scripts/prepublish-checks.mjs",
     "release": "yarn build && auto shipit",
     "eject-ts": "zx scripts/eject-typescript.mjs"
@@ -58,8 +58,10 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@storybook/addon-essentials": "^5.3.21",
-    "@storybook/react": "^6.1.21",
+    "@storybook/addon-essentials": "^8",
+    "@storybook/cli": "^8",
+    "@storybook/manager-api": "^8",
+    "@storybook/react-webpack5": "^8",
     "auto": "^10.34.1",
     "babel-loader": "^8.2.3",
     "boxen": "^5.1.2",
@@ -70,25 +72,16 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
+    "storybook": "^8.0.0",
     "typescript": "^4.6.2",
     "zx": "^1.15.2"
   },
   "peerDependencies": {
-    "@storybook/addons": "^6.4.0 || ^7",
-    "@storybook/api": "^6.4.0 || ^7",
-    "@storybook/components": "^6.4.0 || ^7",
-    "@storybook/core-events": "^6.4.0 || ^7",
-    "@storybook/theming": "^6.4.0 || ^7",
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
-    }
+    "@storybook/api": "^6.4.0 || ^7 || ^8",
+    "@storybook/components": "^6.4.0 || ^7 || ^8",
+    "@storybook/core-events": "^6.4.0 || ^7 || ^8",
+    "@storybook/manager-api": "^6.4.0 || ^7 || ^8",
+    "@storybook/theming": "^6.4.0 || ^7 || ^8"
   },
   "publishConfig": {
     "access": "public"
