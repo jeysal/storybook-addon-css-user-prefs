@@ -1,5 +1,7 @@
 # Storybook Addon: CSS User Preferences
 
+**PSA**: I tried updating this addon to support SB 8, but did not manage to get rid of the `undefined.getGlobals` crash that you should see when linking this into a version 8 storybook. PR fixing this welcome.
+
 This toolbar addon allows you to emulate CSS user preferences in Storybook.
 
 <p align="center"><img src="/src/screenshot.webp" width="50%" /></p>
